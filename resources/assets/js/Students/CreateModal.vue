@@ -513,7 +513,7 @@
     
     @media (max-width: 555px){
         #stepper-step-3 .action .btn-cta[data-v-420ae72c] {
-            padding: 0px;
+            padding: 0px !important;
         }
     }
 
