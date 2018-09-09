@@ -12881,6 +12881,59 @@ table.my-students select {
   }
 }
 
+/*Responsive*/
+
+/* Normal desktop :992px. */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .dashboard-content div > a {
+    font-size: 18px;
+    padding: 3px 30px;
+  }
+}
+
+/* Tablet desktop :768px. */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .dashboard-content div > a {
+    font-size: 14px;
+    padding: 3px 15px;
+  }
+
+  .dashboard-content div > h3 {
+    font-size: 18px;
+  }
+}
+
+/* small mobile :320px. */
+
+@media (max-width: 767px) {
+  .container {
+    width: 400px;
+  }
+
+  .dashboard-content div > a {
+    font-size: 14px;
+    padding: 3px 15px;
+  }
+
+  .dashboard-content div > h3 {
+    font-size: 18px;
+  }
+}
+
+/* Large Mobile :480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .container {
+    width: 450px;
+  }
+
+  .dashboard-content div > a {
+    font-size: 14px;
+  }
+}
+
 @media (min-width: 992px) {
   .col-md-4,
   .col-md-12 {
@@ -13152,50 +13205,7 @@ a.register {
   min-width: 75% !important;
 }
 
-
-/*Responsive*/
-/* Normal desktop :992px. */
-@media (min-width: 992px) and (max-width: 1199px) {
-    .dashboard-content div > a{
-        font-size: 18px;
-        padding: 3px 30px;
-    }
-
+.xl-model {
+  min-width: 95% !important;
 }
-
- 
-/* Tablet desktop :768px. */
-@media (min-width: 768px) and (max-width: 991px) {
-  .dashboard-content div > a{
-    font-size: 14px;
-      padding: 3px 15px;
-  }
-    .dashboard-content div > h3{
-        font-size: 18px;
-    }
-
-}
-
- 
-/* small mobile :320px. */
-@media (max-width: 767px) {
-.container {width:400px}
-    .dashboard-content div > a{
-        font-size: 14px;
-        padding: 3px 15px;
-    }
-    .dashboard-content div > h3{
-        font-size: 18px;
-    }
-}
- 
-/* Large Mobile :480px. */
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-.container {width:450px}
-  .dashboard-content div > a{
-    font-size: 14px;
-}
-
-}
- 
 
