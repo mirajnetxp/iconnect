@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6 dashboard">
+        <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 dashboard">
             <div class="gray-border">
                 <div class='dashboard-icon'>
                     <img src="/images/resource icon.png"  class="img-responsive" alt="Additional Resources">
@@ -68,7 +68,7 @@
     </div>
     @else
         <div class="row">
-            <div class="col-xs-12 col-md-6 dashboard">
+            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 dashboard">
                 <div class="gray-border">
                     <div class='dashboard-icon'>
                         <img src="/images/students.png"  class="img-responsive" alt="Manage Students">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6 dashboard">
+            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 dashboard">
                 <div class="gray-border">
                     <div class='dashboard-icon'>
                         <img src="/images/reports icon.png"  class="img-responsive" alt="Reports">
@@ -106,7 +106,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-md-6 dashboard">
+            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 dashboard">
                 <div class="gray-border">
                     <div class='dashboard-icon'>
                         <img src="/images/mentors.png"  class="img-responsive" alt="Manage mentors">
@@ -126,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6 dashboard">
+            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 dashboard">
                 <div class="gray-border">
                     <div class='dashboard-icon'>
                         <img src="/images/resource icon.png"  class="img-responsive" alt="Additional Resources">
@@ -142,7 +142,7 @@
         </div>
         @if($role == 1)
         <div class="row">
-            <div class="col-xs-12 col-md-6 dashboard">
+            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 dashboard">
                 <div class="gray-border">
                     <div class='dashboard-icon'>
                         <img src="/images/resource icon.png"  class="img-responsive" alt="Additional Resources">
