@@ -32,7 +32,7 @@
 
     @if ($role == 4)
     <div class="row">
-        <div class="col-xs-12 col-md-6 dashboard">
+        <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 dashboard">
             <div class="gray-border">
                 <div class='dashboard-icon'>
                     <img src="/images/students.png"  class="img-responsive" alt="Manage Students">
