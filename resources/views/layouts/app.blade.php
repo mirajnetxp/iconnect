@@ -26,30 +26,31 @@
     </script>
 </head>
 <body>
-    <script src="{{ mix('/js/manifest.js') }}"></script>
-    <script src="{{ mix('/js/vendor.js') }}"></script>
+<script src="{{ mix('/js/manifest.js') }}"></script>
+<script src="{{ mix('/js/vendor.js') }}"></script>
 
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<div id="app">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="@yield('homeUrl', url('/'))">
-                        <img src="{{asset('/images/brand.png')}}" alt="iConnect" height="55px">
-                    </a>
-                </div>
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="@yield('homeUrl', url('/'))">
+                    <img src="{{asset('/images/brand.png')}}" alt="iConnect" height="55px">
+                </a>
+            </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <div class="navbar-wrapper">
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <div class="navbar-wrapper">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav welcome-name">
                         @if (Auth::guest())
@@ -69,16 +70,20 @@
                     @else
                     <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
-                            
+
                             <!-- Authentication Links -->
-                            @if (Auth::guest())
-                                <!-- Email and Password -->
-                                <form class="navbar-form navbar-left" role="form" method="POST" action="{{ url('/login') }}">
+                        @if (Auth::guest())
+                            <!-- Email and Password -->
+                                <form class="navbar-form navbar-left" role="form" method="POST"
+                                      action="{{ url('/login') }}">
                                     {{ csrf_field() }}
 
                                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                        <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}"  autocomplete="email" required autofocus>
-                                        <input id="password" type="password" class="form-control" name="password" placeholder="Password" required autocomplete="current-password">
+                                        <input id="email" type="email" class="form-control" name="email"
+                                               placeholder="Email" value="{{ old('email') }}" autocomplete="email"
+                                               required autofocus>
+                                        <input id="password" type="password" class="form-control" name="password"
+                                               placeholder="Password" required autocomplete="current-password">
                                         @if ($errors->has('email'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('email') }}</strong>
@@ -89,7 +94,7 @@
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('password') }}</strong>
                                             </span>
-                                        @endif    
+                                        @endif
                                     </div>
                                     <button type="submit" class="btn btn-default btn-lg btn-cta">Login</button>
                                 </form>
@@ -101,32 +106,35 @@
                             @else
                                 <li>
                                     <a href="{{ url('/logout') }}" class="btn btn-red logout nav-link"
-                                    onclick="event.preventDefault();
+                                       onclick="event.preventDefault();
                                     document.getElementById('logout-form1').submit();">
-                                    Logout
+                                        Logout
                                     </a>
-                                    
-                                    <form id="logout-form1" action="{{ url('/logout') }}" method="POST" style="display: none;">
+
+                                    <form id="logout-form1" action="{{ url('/logout') }}" method="POST"
+                                          style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
                                 <li class="dropdown gray-border">
-                                    <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                         {{ Auth::user()->full_name }} <span class="caret"></span>
                                     </a>
                                      -->
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-expanded="false">
                                         My Account <span class="caret">
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li>
                                             <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
+                                               onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                            Logout
+                                                Logout
                                             </a>
-                                            
-                                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+
+                                            <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                                  style="display: none;">
                                                 {{ csrf_field() }}
                                             </form>
                                         </li>
@@ -135,21 +143,22 @@
                             @endif
                         </ul>
                     @endif
-                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        @yield('content')
+@yield('content')
 
-        <!-- <footer class="footer">
+<!-- <footer class="footer">
             <div class="container">
                 <p class="text-muted small">{{ $applicationVersion }}</p>
             </div>
         </footer> -->
-    </div>
+</div>
 
-    <script src="{{ mix('/js/app.js') }}"></script>
-    <!-- <script src='https://unpkg.com/v-calendar'></script> -->
+<script src="{{ mix('/js/app.js') }}"></script>
+@yield('script')
+<!-- <script src='https://unpkg.com/v-calendar'></script> -->
 </body>
 </html>

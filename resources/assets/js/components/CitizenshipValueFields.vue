@@ -1,37 +1,37 @@
 <template>
 
-    <div class="panel-group">
-
-        <div class="panel panel-default" v-for="(locationId, locationIndex) in selectedLocationIds" 
-            :key="locationIndex"
-            v-show="locationCanBeSelected(locationIndex)">
+    <div class="">
+        <div class="panel panel-default" v-for="(locationId, locationIndex) in selectedLocationIds"
+             :key="locationIndex"
+             v-show="locationCanBeSelected(locationIndex)">
             <div class="panel-heading" role="tab" :id="formAttributeAsPhpArray('locationTab', locationIndex)">
                 <h2 class="panel-title">
-                    <a role="button" :aria-controls="formAttributeAsPhpArray('locationPanel', locationIndex)" @click="toggleLocation">
+                    <a role="button" :aria-controls="formAttributeAsPhpArray('locationPanel', locationIndex)"
+                       @click="toggleLocation">
                         {{ locationDisplayName(locationIndex, locationId) }}
                     </a>
                 </h2>
             </div>
 
-            <div class="panel-collapse collapse" :id="formAttributeAsPhpArray('locationPanel', locationIndex)" role="tabpanel" :aria-labeledby="formAttributeAsPhpArray('locationTab', locationIndex)">
+            <div class="panel-collapse collapse" :id="formAttributeAsPhpArray('locationPanel', locationIndex)"
+                 role="tabpanel" :aria-labeledby="formAttributeAsPhpArray('locationTab', locationIndex)">
                 <div class="panel-body">
                     <fieldset>
-
                         <div class="row">
                             <div class="col-md-6">
                                 <select
-                                    class="form-control"
-                                    v-model="selectedLocationIds[locationIndex]"
-                                    :name="formAttributeAsPhpArray('monitoringLocations', locationIndex)"
-                                    :id="formAttributeAsPhpArray('monitoringLocations', locationIndex)"
+                                        class="form-control"
+                                        v-model="selectedLocationIds[locationIndex]"
+                                        :name="formAttributeAsPhpArray('monitoringLocations', locationIndex)"
+                                        :id="formAttributeAsPhpArray('monitoringLocations', locationIndex)"
                                 >
                                     <option :value="null" disabled>Select a location</option>
-                                    <optgroup v-for="(locations, categoryName) in monitoringLocationsByCategory" 
-                                        :label="categoryName" :key="categoryName">
-                                        <option 
-                                            v-for="location in locations"
-                                            :key="location.id"
-                                            :value="location.id">
+                                    <optgroup v-for="(locations, categoryName) in monitoringLocationsByCategory"
+                                              :label="categoryName" :key="categoryName">
+                                        <option
+                                                v-for="location in locations"
+                                                :key="location.id"
+                                                :value="location.id">
                                             {{ location.name }}
                                         </option>
                                     </optgroup>
@@ -39,38 +39,40 @@
                             </div>
                             <div class="col-md-6">
                                 <input
-                                    type="text"
-                                    class="form-control"
-                                    v-model.lazy="locationLabels[locationIndex]"
-                                    :name="formAttributeAsPhpArray('locationLabels', locationIndex)"
-                                    :disabled="!locationId" placeholder="(Optional) Location label">
+                                        type="text"
+                                        class="form-control"
+                                        v-model.lazy="locationLabels[locationIndex]"
+                                        :name="formAttributeAsPhpArray('locationLabels', locationIndex)"
+                                        :disabled="!locationId" placeholder="(Optional) Location label">
                             </div>
                         </div>
-
                         <div class="form-group">
                             <!-- TODO: Generalize inline style into stylesheet! -->
-                            <h3 class="col-md-12" style="font-size: 1em; margin-bottom: 0; padding-bottom: 0; padding-top: 0">Citizenship prompts</h3>
+                            <h3 class="col-md-12"
+                                style="font-size: 1em; margin-bottom: 0; padding-bottom: 0; padding-top: 0">
+                                Citizenship prompts</h3>
                             <fieldset class="col-md-12" :disabled="!locationId">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered table-responsive">
                                     <tbody>
-                                        <tr v-for="(citizenshipValues, typeName) in citizenshipValuesByType" :key="typeName">
-                                            <td>
-                                                <label :for="formAttributeAsPhpArray('citizenshipValues', locationIndex, typeName)"></label>
-                                                <select
+                                    <tr v-for="(citizenshipValues, typeName) in citizenshipValuesByType"
+                                        :key="typeName">
+                                        <td>
+                                            <label :for="formAttributeAsPhpArray('citizenshipValues', locationIndex, typeName)"></label>
+                                            <select
                                                     class="form-control"
                                                     v-model="selectedPromptIds[locationIndex][typeName]"
                                                     :name="formAttributeAsPhpArray('citizenshipValues', locationIndex, typeName)"
                                                     :id="formAttributeAsPhpArray('citizenshipValues', locationIndex, typeName)"
-                                                >
-                                                    <option :value="null">Select {{ typeName }} prompt</option>
-                                                    <option 
-                                                        v-for="citizenshipValue in citizenshipValues" 
+                                            >
+                                                <option :value="null">Select {{ typeName }} prompt</option>
+                                                <option
+                                                        v-for="citizenshipValue in citizenshipValues"
                                                         :key="citizenshipValue.id"
                                                         :value="citizenshipValue.id">
-                                                        {{ citizenshipValue.phrasing }}
-                                                    </option>
-                                                </select>
-                                                <input
+                                                    {{ citizenshipValue.phrasing }}
+                                                </option>
+                                            </select>
+                                            <input
                                                     type="text"
                                                     class="form-control"
                                                     v-model.lazy="customPrompts[locationIndex][typeName]"
@@ -78,135 +80,129 @@
                                                     v-show="customPromptSelected(locationIndex, typeName)"
                                                     :disabled="!customPromptSelected(locationIndex, typeName)"
                                                     placeholder="E.g. Are you meeting your citizenship objective?">
-                                            </td>
-                                            <td>
-                                                <div class="radio" title="Variable intervals do not guarantee a sample mean. Generated intervals may be as low as 33% and as high as 167% of the desired mean.">
-                                                    <label >
-                                                        <input
+                                        </td>
+                                        <td>
+                                            <div class="radio"
+                                                 title="Variable intervals do not guarantee a sample mean. Generated intervals may be as low as 33% and as high as 167% of the desired mean.">
+                                                <label>
+                                                    <input
                                                             type="radio"
                                                             v-model="useVariableInterval[locationIndex][typeName]"
                                                             :value="true"
                                                             :name="formAttributeAsPhpArray('isVariableInterval', locationIndex, typeName)"
                                                             :disabled="!selectedPromptIds[locationIndex][typeName]">
-                                                        Variable interval
-                                                    </label>
-                                                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input
+                                                    Variable interval
+                                                </label>
+                                                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input
                                                             type="radio"
                                                             v-model="useVariableInterval[locationIndex][typeName]"
                                                             :value="false"
                                                             :name="formAttributeAsPhpArray('isVariableInterval', locationIndex, typeName)"
                                                             :disabled="!selectedPromptIds[locationIndex][typeName]">
-                                                        Fixed interval
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div v-show="useVariableInterval[locationIndex][typeName]">
-                                                    <label :for="formAttributeAsPhpArray('desiredMeanInSeconds', locationIndex, typeName)">
-                                                        Desired mean interval
-                                                    </label>
-                                                    <select
+                                                    Fixed interval
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div v-show="useVariableInterval[locationIndex][typeName]">
+                                                <label :for="formAttributeAsPhpArray('desiredMeanInSeconds', locationIndex, typeName)">
+                                                    Desired mean interval
+                                                </label>
+                                                <select
                                                         v-show="useVariableInterval[locationIndex][typeName]"
-                                                        class="form-control" :name="formAttributeAsPhpArray('desiredMeanInSeconds', locationIndex, typeName)"
+                                                        class="form-control"
+                                                        :name="formAttributeAsPhpArray('desiredMeanInSeconds', locationIndex, typeName)"
                                                         :id="formAttributeAsPhpArray('desiredMeanInSeconds', locationIndex, typeName)"
                                                         v-model="desiredMeanInSeconds[locationIndex][typeName]"
                                                         :disabled="!selectedPromptIds[locationIndex][typeName]"
-                                                    >
-                                                        <option value selected>Select a desired mean</option>
-                                                        <option value="30"  >30 seconds</option>
-                                                        <option value="60"  >60 seconds</option>
-                                                        <option value="120" >2 minutes</option>
-                                                        <option value="180" >3 minutes</option>
-                                                        <option value="300" >5 minutes</option>
-                                                        <option value="600" >10 minutes</option>
-                                                        <option value="1800">30 minutes</option>
-                                                    </select>
-                                                </div>
-                                                <div v-show="!useVariableInterval[locationIndex][typeName]">
-                                                    <div class="row">
-                                                        <div class="col-sm-4">
-                                                            <label :for="formAttributeAsPhpArray('intervalHours', locationIndex, typeName)">Hours</label>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <label :for="formAttributeAsPhpArray('intervalMinutes', locationIndex, typeName)">Minutes</label>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <label :for="formAttributeAsPhpArray('intervalSeconds', locationIndex, typeName)">Seconds</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-4">
-                                                            <select
+                                                >
+                                                    <option value selected>Select a desired mean</option>
+                                                    <option value="30">30 seconds</option>
+                                                    <option value="60">60 seconds</option>
+                                                    <option value="120">2 minutes</option>
+                                                    <option value="180">3 minutes</option>
+                                                    <option value="300">5 minutes</option>
+                                                    <option value="600">10 minutes</option>
+                                                    <option value="1800">30 minutes</option>
+                                                </select>
+                                            </div>
+                                            <div v-show="!useVariableInterval[locationIndex][typeName]">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                                        <label :for="formAttributeAsPhpArray('intervalHours', locationIndex, typeName)">Hours</label>
+                                                        <select
                                                                 class="form-control"
                                                                 :name="formAttributeAsPhpArray('intervalHours', locationIndex, typeName)"
                                                                 :id="formAttributeAsPhpArray('intervalHours', locationIndex, typeName)"
                                                                 v-model="intervalHours[locationIndex][typeName]"
                                                                 :disabled="!selectedPromptIds[locationIndex][typeName]"
-                                                            >
-                                                                <!-- v-for range starts at 1 -->
-                                                                <option v-for="i in 25" :key="i">{{ i - 1 }}</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <select
+                                                        >
+                                                            <!-- v-for range starts at 1 -->
+                                                            <option v-for="i in 25" :key="i">{{ i - 1 }}</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                                        <label :for="formAttributeAsPhpArray('intervalMinutes', locationIndex, typeName)">Minutes</label>
+                                                        <select
                                                                 class="form-control"
                                                                 :name="formAttributeAsPhpArray('intervalMinutes', locationIndex, typeName)"
                                                                 :id="formAttributeAsPhpArray('intervalMinutes', locationIndex, typeName)"
                                                                 v-model="intervalMinutes[locationIndex][typeName]"
                                                                 :disabled="!selectedPromptIds[locationIndex][typeName]"
-                                                            >
-                                                                <!-- v-for range starts at 1 -->
-                                                                <option 
+                                                        >
+                                                            <!-- v-for range starts at 1 -->
+                                                            <option
                                                                     v-for="i in 60"
                                                                     :key="i"
-                                                                    >
-                                                                    {{ i - 1 }}
-                                                                </option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <select
+                                                            >
+                                                                {{ i - 1 }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                                        <label :for="formAttributeAsPhpArray('intervalSeconds', locationIndex, typeName)">Seconds</label>
+                                                        <select
                                                                 class="form-control"
                                                                 :name="formAttributeAsPhpArray('intervalSeconds', locationIndex, typeName)"
                                                                 :id="formAttributeAsPhpArray('intervalSeconds', locationIndex, typeName)"
                                                                 :v-model="intervalSeconds[locationIndex][typeName]"
                                                                 :disabled="!selectedPromptIds[locationIndex][typeName]"
-                                                            >
-                                                                <!-- v-for range starts at 1 -->
-                                                                <option v-for="i in 60" :key="i">{{ i - 1 }}</option>
-                                                            </select>
-                                                        </div>
+                                                        >
+                                                            <!-- v-for range starts at 1 -->
+                                                            <option v-for="i in 60" :key="i">{{ i - 1 }}</option>
+                                                        </select>
                                                     </div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <label :for="formAttributeAsPhpArray('goals', locationIndex, typeName)">Goal %</label>
-                                                <select
-                                                        class="form-control"
-                                                        :name="formAttributeAsPhpArray('goals', locationIndex, typeName)"
-                                                        :id="formAttributeAsPhpArray('goals', locationIndex, typeName)"
-                                                        v-model="goalPercent[locationIndex][typeName]"
-                                                        :disabled="!selectedPromptIds[locationIndex][typeName]"
-                                                >
-                                                    <option value selected>No goal</option>
-                                                    <option value="50"  >50%</option>
-                                                    <option value="55"  >55%</option>
-                                                    <option value="60"  >60%</option>
-                                                    <option value="65"  >65%</option>
-                                                    <option value="70"  >70%</option>
-                                                    <option value="75"  >75%</option>
-                                                    <option value="80"  >80%</option>
-                                                    <option value="85"  >85%</option>
-                                                    <option value="90"  >90%</option>
-                                                    <option value="95"  >95%</option>
-                                                    <option value="100" >100%</option>
-                                                </select>
-                                            </td>
-                                        </tr>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <label :for="formAttributeAsPhpArray('goals', locationIndex, typeName)">Goal %</label>
+                                            <select
+                                                    class="form-control"
+                                                    :name="formAttributeAsPhpArray('goals', locationIndex, typeName)"
+                                                    :id="formAttributeAsPhpArray('goals', locationIndex, typeName)"
+                                                    v-model="goalPercent[locationIndex][typeName]"
+                                                    :disabled="!selectedPromptIds[locationIndex][typeName]"
+                                            >
+                                                <option value selected>No goal</option>
+                                                <option value="50">50%</option>
+                                                <option value="55">55%</option>
+                                                <option value="60">60%</option>
+                                                <option value="65">65%</option>
+                                                <option value="70">70%</option>
+                                                <option value="75">75%</option>
+                                                <option value="80">80%</option>
+                                                <option value="85">85%</option>
+                                                <option value="90">90%</option>
+                                                <option value="95">95%</option>
+                                                <option value="100">100%</option>
+                                            </select>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </fieldset>
@@ -232,13 +228,13 @@
             'selectedLocationIds',
             'locationLabels',
             'selectedPromptIds',
-            'useVariableInterval', 
+            'useVariableInterval',
             'desiredMeanInSeconds',
             'intervalHours',
-            'intervalMinutes',     
-            'intervalSeconds',     
-            'customPrompts',       
-            'goalPercent',         
+            'intervalMinutes',
+            'intervalSeconds',
+            'customPrompts',
+            'goalPercent',
         ],
 
         data() {
@@ -262,44 +258,44 @@
                 this.locationLabels.push(null);
                 // TODO: Consider pulling these citizenship value types from the props instead of hard-coded, vis-à-vis data model changes
                 this.selectedPromptIds.push({
-                    Engagement      : null,
-                    Appropriateness : null,
-                    Comprehension   : null
+                    Engagement: null,
+                    Appropriateness: null,
+                    Comprehension: null
                 });
                 this.customPrompts.push({
-                    Engagement      : null,
-                    Appropriateness : null,
-                    Comprehension   : null
+                    Engagement: null,
+                    Appropriateness: null,
+                    Comprehension: null
                 });
                 this.useVariableInterval.push({
-                    Engagement      : true,
-                    Appropriateness : true,
-                    Comprehension   : true
+                    Engagement: true,
+                    Appropriateness: true,
+                    Comprehension: true
                 });
                 this.desiredMeanInSeconds.push({
-                    Engagement      : 0,
-                    Appropriateness : 0,
-                    Comprehension   : 0
+                    Engagement: 0,
+                    Appropriateness: 0,
+                    Comprehension: 0
                 });
                 this.intervalHours.push({
-                    Engagement      : 0,
-                    Appropriateness : 0,
-                    Comprehension   : 0
+                    Engagement: 0,
+                    Appropriateness: 0,
+                    Comprehension: 0
                 });
                 this.intervalMinutes.push({
-                    Engagement      : 0,
-                    Appropriateness : 0,
-                    Comprehension   : 0
+                    Engagement: 0,
+                    Appropriateness: 0,
+                    Comprehension: 0
                 });
                 this.intervalSeconds.push({
-                    Engagement      : 0,
-                    Appropriateness : 0,
-                    Comprehension   : 0
+                    Engagement: 0,
+                    Appropriateness: 0,
+                    Comprehension: 0
                 });
                 this.goalPercent.push({
-                    Engagement      : 0,
-                    Appropriateness : 0,
-                    Comprehension   : 0
+                    Engagement: 0,
+                    Appropriateness: 0,
+                    Comprehension: 0
                 });
             }
         },
@@ -312,7 +308,8 @@
                 let value = `${primaryName}[${key1}]`;
                 if (key2) {
                     value += `[${key2}]`;
-                };
+                }
+                ;
                 return value;
             },
 
@@ -334,7 +331,7 @@
                 // Note that order can't be guaranteed and should be validated server-side if needed
 
                 let nextAvailableIndex = this.selectedLocationIds.indexOf(null);
-                if (nextAvailableIndex === - 1) {
+                if (nextAvailableIndex === -1) {
                     // Special case: full list means everything is enabled
                     return true;
                 }
@@ -367,7 +364,7 @@
         min-height: 265px;
         max-height: 265px;
         overflow-y: scroll;
-        font-size: .5em;        
+        font-size: .5em;
     }
 </style>
 

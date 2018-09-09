@@ -5,6 +5,7 @@
  */
 
 window.$ = window.jQuery = require('jquery');
+window.dobPicker = require('../js/vendor/dobpicker');
 
 require('bootstrap-sass');
 
