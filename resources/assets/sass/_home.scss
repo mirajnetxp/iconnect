@@ -1,0 +1,174 @@
+// Dashboard Styles
+
+.dashboard {
+    
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    div {
+        float: left;
+    }
+
+    .dashboard-icon {
+        width: 40%;
+    }
+
+    div.gray-border {
+        width: 100%;
+
+        .dashboard-content {
+            width: 59%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 148px;
+        }
+    }
+
+    img {
+        height: auto;
+        min-height: 148px;
+    }
+
+    ul {
+        list-style: none;
+        display: inline-flex;
+
+        li {
+            margin: 5px 0px 5px 10px;
+            padding-right: 10px;
+            font-size: 1.2em;
+            border-right: 1px solid $iconnect-gray;
+            
+            a {
+                color: $iconnect-gray;
+                cursor: pointer;
+            }
+        }
+        
+        li:last-child {
+            border: none;
+        }
+    }
+
+    button {
+        font-size: 1em;
+        font-weight: 400;
+    }
+}
+
+.admin-dashboard {
+    margin-top: 10px;
+    padding: 0px 10px;
+    position: relative;
+
+    h3 {
+        font-weight: 600;
+        font-size: 24px;
+        height: 50px;
+    }
+
+    img {
+        // height: 120px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .gray-border {
+        padding: 0px 10px;
+
+        .text-center {
+            height: 200px;
+
+            & > p {
+                font-size: 16px;
+            }
+
+            .updated_at {
+                position: absolute;
+                left: 25px;
+                bottom: 10px;
+                color: $iconnect-lightgray;
+            }
+        }
+    }
+}
+
+.filter {
+
+    margin-top: 40px;
+    // margin-bottom: 70px;
+
+    form {
+        div.form-group:last-child {
+            margin-top: 20px;
+            margin-left: 50px;
+
+            a {
+                padding: 10px;
+            }
+        }
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    select {
+        height: 35px;
+        line-height: 35px;
+        font-size: 18px;
+        border-radius: 0px;
+        outline: 1px inset black;
+        outline-offset:-1px;
+        // -webkit-appearance: none;
+    }
+
+    input[type=text] {
+        font-size: 20px;
+        margin-left: 20px;
+        padding-right: 80px
+    }
+
+    .search-table {
+        margin-top: 20px;
+    }
+}
+
+table.my-students {
+
+    margin-bottom: 50px;
+
+    thead {
+        background: $iconnect-lightgray;
+    }
+
+    a {
+        font-size: 14px;
+        margin: 0px 10px;
+    }
+
+    a.btn-yellow {
+        color: $iconnect-gray;
+    }
+
+    select {
+        height: 25px;
+        line-height: 25px;
+        font-size: 14px;
+        border-radius: 0px;
+        outline: 1px inset black;
+        outline-offset:-1px;
+    }
+}
+
+.filter.no-margin {
+    margin: 10px;
+}
+
+.table-title {
+    margin-top: 0px !important;
+}
