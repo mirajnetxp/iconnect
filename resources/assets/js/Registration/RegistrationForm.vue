@@ -220,7 +220,7 @@
                                             </option>
                                         </select>
                                     </div>
-                                    <div v-if="userInfo.isEmployee" class="col-xs-3">
+                                    <div v-if="userInfo.isEmployee" class="col-md-6 col-sm-6 col-xs-12">
                                         <select v-model="userInfo.district_id" :disabled="userInfo.county_id==0"
                                                 class="form-control" autocomplete="address-level2"
                                                 @change="selDistrict()">
@@ -668,7 +668,9 @@
         margin: auto;
         width: 70%;
     }
-
+    input{
+        margin: 3px 0px;
+    }
     // Registration Issue
     div.issue.checkbox {
         font-size: 12px;
