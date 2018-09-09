@@ -2673,7 +2673,7 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "col-sm-4 col-md-4 col-lg-4 col-xs-4"
+                                                "col-sm-12 col-md-4 col-lg-4 col-xs-12"
                                             },
                                             [
                                               _c(
@@ -2765,7 +2765,7 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "col-sm-4 col-md-4 col-lg-4 col-xs-4"
+                                                "col-sm-12 col-md-4 col-lg-4 col-xs-12"
                                             },
                                             [
                                               _c(
@@ -2863,7 +2863,7 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "col-sm-4 col-md-4 col-lg-4 col-xs-4"
+                                                "col-sm-12 col-md-4 col-lg-4 col-xs-12"
                                             },
                                             [
                                               _c(
@@ -8561,12 +8561,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.studentInfo.intervalSeconds = this.intervalSeconds.slice(0, locations);
             this.studentInfo.customPrompts = this.customPrompts.slice(0, locations);
             this.studentInfo.goals = this.goalPercent.slice(0, locations);
-
+            console.log(this.studentInfo);
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post("/create-student/save-student", this.studentInfo).then(function (response) {
+                console.log('advadv adv ');
+                console.log(response.data);
+
+                $('body').html(response.data);
+
                 if (response.data.result == 'ok') {
                     _this.$emit("submit");
                 }
             }, function (error) {
+
+                $('body').html(error.responseText);
+
                 for (var key in error.response.data) {
                     _this.$toasted.show(error.response.data[key], {
                         theme: "outline",

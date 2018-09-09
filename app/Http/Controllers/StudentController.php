@@ -204,6 +204,9 @@ class StudentController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function saveStudent( Request $request ) {
+
+		dd($request->all());
+
 		$this->authorize( 'create', Student::class );
 
 		$attributes = $request->only( [
