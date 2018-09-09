@@ -1,7 +1,7 @@
 <template>
     <div class="container registration-form">
         <div class="row text-center">
-            <div class="col-md-9 stepper">
+            <div style="margin: auto;" class="col-md-12 stepper">
                 <!-- Modal -->
                 <div class="modal fade" id="RegProb" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -13,15 +13,15 @@
                             <div class="modal-body">
                                 <form id="regIssueForm" @submit="saveIssue()">
                                     <div class="personal-info form-group row">
-                                        <div class="col-xs-3">
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
                                             <input v-model="userInfo.first_name" type="text" class="form-control"
                                                    placeholder="First Name" autocomplete="given-name">
                                         </div>
-                                        <div class="col-xs-3">
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
                                             <input v-model="userInfo.last_name" type="text" class="form-control"
                                                    placeholder="Last Name" autocomplete="family-name">
                                         </div>
-                                        <div class="col-xs-6">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
                                             <input v-model="userInfo.email" type="email" class="form-control"
                                                    placeholder="School Email Address" autocomplete="email" required>
                                         </div>
@@ -184,24 +184,24 @@
                         <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
                             <div class="action gray-border">
                                 <div class="personal-info form-group row">
-                                    <div class="col-xs-3">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
                                         <input id="first_name" type="text" class="form-control"
                                                v-model="userInfo.first_name" placeholder="First Name"
                                                autocomplete="given-name">
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
                                         <input id="last_name" type="text" class="form-control"
                                                v-model="userInfo.last_name" placeholder="Last Name"
                                                autocomplete="family-name">
                                     </div>
-                                    <div class="col-xs-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input id="school_email" type="email" class="form-control"
                                                v-model="userInfo.email" placeholder="School Email Address"
                                                autocomplete="email" required>
                                     </div>
                                 </div>
                                 <div class="location form-group row-box">
-                                    <div class="col-xs-3">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
                                         <select v-model="userInfo.state_id" class="form-control"
                                                 autocomplete="address-level1" @change="selState()">
                                             <option value="0">State</option>
@@ -210,7 +210,7 @@
                                             </option>
                                         </select>
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
                                         <select v-model="userInfo.county_id" :disabled="userInfo.state_id==0"
                                                 class="form-control" autocomplete="address-level1"
                                                 @change="selCounty()">
@@ -220,7 +220,7 @@
                                             </option>
                                         </select>
                                     </div>
-                                    <div v-if="userInfo.isEmployee" class="col-xs-3">
+                                    <div v-if="userInfo.isEmployee" class="col-md-6 col-sm-6 col-xs-12">
                                         <select v-model="userInfo.district_id" :disabled="userInfo.county_id==0"
                                                 class="form-control" autocomplete="address-level2"
                                                 @change="selDistrict()">
@@ -668,7 +668,9 @@
         margin: auto;
         width: 70%;
     }
-
+    input{
+        margin: 3px 0px;
+    }
     // Registration Issue
     div.issue.checkbox {
         font-size: 12px;

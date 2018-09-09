@@ -16,7 +16,7 @@
                     <option value="0">School Name(No Selected)</option>
                 </select>
             </div>
-            <div class="col-md-3 list-option">
+            <div class="col-md-3 col-sm-6 col-xs-12 list-option">
                 <h3 class="text-center">Report Options</h3>
                 <div class="gray-border">
                     <div class="checkbox">
@@ -45,7 +45,7 @@
                     <date-picker v-model="time3" range :shortcuts="shortcuts" :lang="lang"></date-picker>
                 </div>
             </div>
-            <div class="col-md-3 list-option">
+            <div class="col-md-3 col-sm-6 col-xs-12 list-option">
                 <h3 class="text-center">Export Format</h3>
                 <div class="gray-border">
                     <div class="radio">
@@ -69,15 +69,17 @@
         </div>
         <hr>
         <div class="row list-wrapper">
-            <div class="col-md-3 list-option">
-                <button class="btn btn-cta btn-large reselect" @click="clearFilter">Re-select</button>
-            </div>
-            <div class="col-md-3 list-option">
-                <button class="btn btn-cta btn-large btn-blue preview action" @click="filterValidation">Preview Report</button>
-            </div>
-            <div class="col-md-3 list-option">
-                <button class="btn btn-cta btn-large print action" @click="filterValidation">Print</button>
-            </div>
+            <ul class="btn_area">
+                <li class="list-option">
+                    <button class="btn btn-cta btn-large reselect" @click="clearFilter">Re-select</button>
+                </li>
+                <li class="list-option">
+                    <button class="btn btn-cta btn-large btn-blue preview action" @click="filterValidation">Preview Report</button>
+                </li>
+                <li class="list-option">
+                    <button class="btn btn-cta btn-large btn-red print action" @click="filterValidation">Print</button>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -274,6 +276,10 @@ export default {
                 padding: 5px 70px;
             }
         }
+    }
+    .btn_area li{
+        list-style: none;
+        display: inline-block;
     }
 </style>
 

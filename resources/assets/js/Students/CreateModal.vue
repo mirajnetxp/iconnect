@@ -74,7 +74,7 @@
                                         </div>
                                     </div>
                                     <div class="options form-group row">
-                                        <div class="col-xs-6 form-group">
+                                        <div class="col-md-6 form-group">
                                             <label class="radio-inline"><input type="radio" name="gender"
                                                                                id="gender-female" required
                                                                                v-model="studentInfo.gender_id"
@@ -84,7 +84,7 @@
                                                                                v-model="studentInfo.gender_id"
                                                                                :value="2">Female</label>
                                         </div>
-                                        <div class="col-xs-3 form-group">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 form-group">
                                             <select name="ethnicity" id="ethnicity" class="form-control"
                                                     v-model="studentInfo.ethnicity_id">
                                                 <option value="0">Ethnicity(optional)</option>
@@ -93,7 +93,7 @@
                                                 </option>
                                             </select>
                                         </div>
-                                        <div class="col-xs-3 form-group">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 form-group">
                                             <select name="iep" id="iep" class="form-control"
                                                     v-model="studentInfo.iep_id">
                                                 <option value="0">IEP(optional)</option>
@@ -174,25 +174,25 @@
                                 <h2>Add stakeholder(s)</h2>
                                 <div class="action">
                                     <div class="personal-info row" v-for="i in 3" :key="i">
-                                        <div class="col-xs-2 form-group">
+                                        <div class="col-xs-2 col-md-2 form-group">
                                             <input type="text" :id="'stakeholder' + i + '_first_name'"
                                                    class="form-control" placeholder="First name">
                                         </div>
-                                        <div class="col-xs-2 form-group">
+                                        <div class="col-xs-2 col-md-2 form-group">
                                             <input type="text" :id="'stakeholder' + i + '_last_name'"
                                                    class="form-control" placeholder="Last name">
                                         </div>
-                                        <div class="col-xs-2 form-group">
+                                        <div class="col-xs-2 col-md-2 form-group">
                                             <input type="text" :id="'stakeholder' + i + '_email'"
                                                    class="form-control" placeholder="Email Address">
                                         </div>
-                                        <div class="col-xs-2 form-group">
+                                        <div class="col-xs-2 col-md-2 form-group">
                                             <select id="relationship" class="form-control">
                                                 <option value="" disabled selected>Relationship</option>
                                             </select>
                                         </div>
-                                        <button class="btn btn-cta btn-green">Enable</button>
-                                        <button class="btn btn-cta btn-yellow">Desable</button>
+                                        <span><button class="btn btn-cta btn-green ee">Enable</button></span>
+                                        <span><button style="background:yellow;" class="btn btn-cta btn-green dd">Desable</button></span>
                                     </div>
                                 </div>
                                 <div>
@@ -499,6 +499,22 @@
             }
         }
     }
-
+    @media (max-width: 627px){
+        .action .personal-info button {
+            padding: 0;
+            background: transparent !important;
+            color: #1f69c0;
+            border: none;
+        }
+        .modal-body .tab-content{
+            padding: 40px 10px;
+        }
+    }
+    
+    @media (max-width: 555px){
+        #stepper-step-3 .action .btn-cta[data-v-420ae72c] {
+            padding: 0px !important;
+        }
+    }
 
 </style>
