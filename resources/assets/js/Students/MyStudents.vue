@@ -70,33 +70,28 @@
                 </tbody>
             </table>
         </div>
-
         <pagination :data="students" @pagination-change-page="updateList">
             <span slot="prev-nav">&lt; Previous</span>
             <span slot="next-nav">Next &gt;</span>
         </pagination>
 
         <!--<div class="text-center">-->
-            <!--<a v-if="auth.user_role_id != 4" href="#" class="btn btn-lg btn-cta"-->
-               <!--@click="newStudent(0)">Add New Student</a>-->
+        <!--<a v-if="auth.user_role_id != 4" href="#" class="btn btn-lg btn-cta"-->
+        <!--@click="newStudent(0)">Add New Student</a>-->
         <!--</div>-->
         <div class="text-center">
             <a v-if="auth.user_role_id != 4" class="btn btn-lg btn-cta" data-toggle="modal" data-target="#myModal"
-               @click="newStudent(0)">Add New Student</a>
+               @click="newStudent(0)">Add New Student
+            </a>
         </div>
-
-
-
         <!--<create-modal v-if="createModal" @close="createModal = false" :student-id="selected_student_id"-->
         <!--@submit="editOk">-->
         <!--<h1 slot="header" class="text-center">Add/Edit Student</h1>-->
         <!--</create-modal>-->
-
         <create-modal :student-id="selected_student_id"
                       @submit="editOk">
             <h1 slot="header" class="text-center">Add/Edit Student</h1>
         </create-modal>
-
         <transfer-modal v-if="transferModal" @close="transferModal = false" :student-info="selected_student"
                         @submit="transferOk">
             <h1 slot="header" class="text-center">
@@ -210,6 +205,7 @@
                             this.updateList(response.data.last_page);
                             return;
                         }
+                        console.log(response.data);
                         this.students = response.data;
                     });
             },

@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
@@ -309,7 +310,8 @@
                             }
                         },
                         error => {
-
+                                console.log('error');
+                                console.log(error);
                             $('body').html(error.responseText);
 
                             for (const key in error.response.data) {

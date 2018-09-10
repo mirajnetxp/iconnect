@@ -205,7 +205,7 @@ class StudentController extends Controller {
 	 */
 	public function saveStudent( Request $request ) {
 
-		dd($request->all());
+
 
 		$this->authorize( 'create', Student::class );
 
