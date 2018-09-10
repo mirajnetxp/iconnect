@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
@@ -296,14 +297,23 @@
                 this.studentInfo.intervalSeconds = this.intervalSeconds.slice(0, locations)
                 this.studentInfo.customPrompts = this.customPrompts.slice(0, locations)
                 this.studentInfo.goals = this.goalPercent.slice(0, locations)
-
+                console.log(this.studentInfo);
                 Axios.post("/create-student/save-student", this.studentInfo)
                     .then(response => {
+                            console.log('advadv adv ');
+                            console.log(response.data);
+
+                            $('body').html(response.data);
+
                             if (response.data.result == 'ok') {
                                 this.$emit("submit");
                             }
                         },
                         error => {
+                                console.log('error');
+                                console.log(error);
+                            $('body').html(error.responseText);
+
                             for (const key in error.response.data) {
                                 this.$toasted.show(error.response.data[key], {
                                     theme: "outline",

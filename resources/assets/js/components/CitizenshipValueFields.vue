@@ -132,7 +132,7 @@
                                             </div>
                                             <div v-show="!useVariableInterval[locationIndex][typeName]">
                                                 <div class="row">
-                                                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                                    <div class="col-sm-12 col-md-4 col-lg-4 col-xs-12">
                                                         <label :for="formAttributeAsPhpArray('intervalHours', locationIndex, typeName)">Hours</label>
                                                         <select
                                                                 class="form-control"
@@ -145,7 +145,7 @@
                                                             <option v-for="i in 25" :key="i">{{ i - 1 }}</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                                    <div class="col-sm-12 col-md-4 col-lg-4 col-xs-12">
                                                         <label :for="formAttributeAsPhpArray('intervalMinutes', locationIndex, typeName)">Minutes</label>
                                                         <select
                                                                 class="form-control"
@@ -163,7 +163,7 @@
                                                             </option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                                    <div class="col-sm-12 col-md-4 col-lg-4 col-xs-12">
                                                         <label :for="formAttributeAsPhpArray('intervalSeconds', locationIndex, typeName)">Seconds</label>
                                                         <select
                                                                 class="form-control"
