@@ -12,7 +12,7 @@
     @include('layouts.homeheading')
 
     <div class="row">
-        <div class="col-md-3 col-xs-12 admin-dashboard">
+        <div class="col-md-3 col-xs-12 col-sm-6 col-xl-3 admin-dashboard">
             <div class="gray-border">
                 <img src="/images/roles.png"  class="img-responsive" alt="Manage Roles">
                 <div class="text-center">
@@ -22,7 +22,7 @@
                 </div>
             </div> 
         </div>
-        <div class="col-md-3 col-xs-12 admin-dashboard">
+        <div class="col-md-3 col-xs-12 col-sm-6 col-xl-3 admin-dashboard">
             <div class="gray-border">
                 <img src="/images/manage banner.png"  class="img-responsive" alt="Manage Banner">
                 <div class="text-center">
@@ -32,7 +32,7 @@
                 </div>
             </div> 
         </div>
-        <div class="col-md-3 col-xs-12 admin-dashboard">
+        <div class="col-md-3 col-xs-12 col-sm-6 col-xl-3 admin-dashboard">
             <div class="gray-border">
                 <img src="/images/notify users.png"  class="img-responsive" alt="Notify users">
                 <div class="text-center">
@@ -42,7 +42,7 @@
                 </div>
             </div> 
         </div>
-        <div class="col-md-3 col-xs-12 admin-dashboard">
+        <div class="col-md-3 col-xs-12 col-sm-6 col-xl-3 admin-dashboard">
             <div class="gray-border">
                 <img src="/images/manage administrators.png"  class="img-responsive" alt="Manage Administrators">
                 <div class="text-center">

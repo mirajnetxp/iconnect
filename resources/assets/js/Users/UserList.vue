@@ -41,7 +41,7 @@
                     <td>{{user.last_name}}</td>
                     <td>{{user.user_role.name}}</td>
                     <td class="actions text-center">
-                        <a v-if="auth.user_role_id != 4" href="#" class="btn btn-large btn-cta" @click.prevent="editUser(user)">Edit</a>
+                        <a v-if="auth.user_role_id != 4" href="#" class="btn btn-large btn-cta btn-sz" @click.prevent="editUser(user)">Edit</a>
                     </td>
                 </tr>
             </tbody>
@@ -155,4 +155,14 @@
             }
         }
     }
+    .btn-sz{
+	    font-size: 14px;
+	    padding: 3px 10px;
+    }
+    @media (max-width: 479px) {
+		.btn-sz{
+			padding:2px 5px;
+			
+		}
+	}
 </style>
