@@ -44,19 +44,19 @@
                                     <div class="personal-info form-group row">
                                         <div class="col-xs-6">
                                             <input type="text" name="student_first_name" id="student_first_name"
-                                                   class="form-control" placeholder="First name" required
+                                                   class="form-control" placeholder="Student’s First Name" required
                                                    v-model="studentInfo.first_name">
                                         </div>
                                         <div class="col-xs-6">
                                             <input type="text" name="student_Last name" id="student_last_name"
-                                                   class="form-control" placeholder="Last name" required
+                                                   class="form-control" placeholder="Student’s Last Name" required
                                                    v-model="studentInfo.last_name">
                                         </div>
                                     </div>
                                     <div class="personal-info form-group row">
                                         <div class="col-xs-6">
                                             <input type="text" class="form-control"
-                                                   placeholder="Midle name (Optional)">
+                                                   placeholder="Student’s Middle Name (Optional)">
                                         </div>
                                         <div class="col-xs-6">
                                             <label>Select Birthdate</label>
@@ -130,14 +130,14 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-xs-8 col-xs-offset-2">
-                                            <input type="text" placeholder="iConnect UserName" class="form-control"
+                                            <input type="text" placeholder="Create Student’s iConnect Username" class="form-control"
                                                    v-model="studentInfo.username" name="username" id="username"
                                                    required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-xs-8 col-xs-offset-2">
-                                            <input type="password" placeholder="iConnect Password"
+                                            <input type="password" placeholder="Create Student’s iConnect Username"
                                                    class="form-control" v-model="studentInfo.password"
                                                    name="password" id="password" :required="studentId==0">
                                         </div>

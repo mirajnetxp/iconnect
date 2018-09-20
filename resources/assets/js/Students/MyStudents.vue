@@ -90,7 +90,7 @@
         <!--</create-modal>-->
         <create-modal :student-id="selected_student_id"
                       @submit="editOk">
-            <h1 slot="header" class="text-center">Add/Edit Student</h1>
+            <h1 slot="header" class="text-center">Add/Edit Student Account</h1>
         </create-modal>
         <transfer-modal v-if="transferModal" @close="transferModal = false" :student-info="selected_student"
                         @submit="transferOk">
