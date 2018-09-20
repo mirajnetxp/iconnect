@@ -90,10 +90,16 @@
                                             <select name="ethnicity" id="ethnicity" class="form-control"
                                                     v-model="studentInfo.ethnicity_id">
                                                 <option value="0">Ethnicity(optional)</option>
-                                                <option v-for="ethnicity in options.ethnicities"
-                                                        :value="ethnicity.id" :key="ethnicity.id">{{ethnicity.name}}
-                                                </option>
+                                                <option value="">American Indian / Alaskan Native</option>
+                                                <option value="">Asian</option>
+                                                <option value="">Black</option>
+                                                <option value="">Pacific Island / Native Hawian</option>
+                                                <option value="">White</option>
+                                                <option value="">Hispanic</option>
+                                                <option value="">2 or more combination</option>
+	                                            
                                             </select>
+                                            
                                         </div>
                                         <div class="col-md-3 col-sm-6 col-xs-12 form-group">
                                             <select name="iep" id="iep" class="form-control"
