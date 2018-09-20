@@ -61,12 +61,13 @@
                                         <div class="col-xs-6">
                                             <label>Select Birthdate</label>
                                             <form class="form-inline">
-                                                <div class="form-group">
-                                                    <select class="form-control" required id="dobday"></select>
-                                                </div>
+                                                
                                                 <div class="form-group">
                                                     <select class="form-control" required
                                                             id="dobmonth"></select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <select class="form-control" required id="dobday"></select>
                                                 </div>
                                                 <div class="form-group">
                                                     <select class="form-control" required id="dobyear"></select>
