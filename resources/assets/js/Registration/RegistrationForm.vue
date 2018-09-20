@@ -174,7 +174,7 @@
                                     </div>
                                 </div>
                                 <div v-else>
-                                    <h2 class="question">I am going to register as a Stakeholder.</h2>
+                                    <h2 class="question">I am going to register as a non-district affiliated mentor</h2>
                                 </div>
                             </div>
                             <a href="#" class="btn btn-info btn-lg" @click="goto('stepper-step-3')">
