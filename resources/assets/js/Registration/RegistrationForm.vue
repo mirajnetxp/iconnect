@@ -137,9 +137,9 @@
                                     <div class="col-md-4 role">
                                         <div class="panel panel-default select-pannel gray-border">
                                             <div class="pannel-body select-pannel-body gray-border">
-                                                <h3>FACLILTATOR</h3>
-                                                <p>I will be mananging several Schools, Teachers/Mentors,
-                                                    and Studnents in my district.
+                                                <h3>FACILITATOR </h3>
+                                                <p>I will be managing several Schools, Teachers/Mentors,
+                                                    and Students in my district.
                                                 </p>
                                             </div>
                                             <button type="button" class="btn btn-default btn-cta"
@@ -150,9 +150,9 @@
                                     <div class="col-md-4 role">
                                         <div class="panel panel-default select-pannel gray-border">
                                             <div class="pannel-body select-pannel-body gray-border">
-                                                <h3>SITE FACLILTATOR</h3>
-                                                <p>I will be mananging several Teachers/Mentors,
-                                                    and Studnents in my school.
+                                                <h3>MANAGING</h3>
+                                                <p>I will be managing several Teachers/Mentors,
+                                                    and Students in my school.
                                                 </p>
                                             </div>
                                             <button type="button" class="btn btn-default btn-cta"
@@ -163,8 +163,8 @@
                                     <div class="col-md-4 role">
                                         <div class="panel panel-default select-pannel gray-border">
                                             <div class="pannel-body select-pannel-body gray-border">
-                                                <h3>SCHOOL MENTOR</h3>
-                                                <p>I will be mananging several Studnents in my school.
+                                                <h3>STUDENTS</h3>
+                                                <p>I will be managing several Students in my school.
                                                 </p>
                                             </div>
                                             <button type="button" class="btn btn-default btn-cta"
@@ -174,7 +174,7 @@
                                     </div>
                                 </div>
                                 <div v-else>
-                                    <h2 class="question">I am going to register as a Stakeholder.</h2>
+                                    <h2 class="question">I am going to register as a non-district affiliated mentor</h2>
                                 </div>
                             </div>
                             <a href="#" class="btn btn-info btn-lg" @click="goto('stepper-step-3')">

@@ -19,21 +19,32 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-md-6">
-                                <select
-                                        class="form-control"
-                                        v-model="selectedLocationIds[locationIndex]"
-                                        :name="formAttributeAsPhpArray('monitoringLocations', locationIndex)"
-                                        :id="formAttributeAsPhpArray('monitoringLocations', locationIndex)"
-                                >
-                                    <option :value="null" disabled>Select a location</option>
-                                    <optgroup v-for="(locations, categoryName) in monitoringLocationsByCategory"
-                                              :label="categoryName" :key="categoryName">
-                                        <option
-                                                v-for="location in locations"
-                                                :key="location.id"
-                                                :value="location.id">
-                                            {{ location.name }}
-                                        </option>
+                                <select class="form-control">
+                                    <option value="0">Select a location</option>
+                                    <optgroup label="School">
+                                        <option>Art</option>
+                                        <option>Language arts</option>
+                                        <option>Math</option>
+                                        <option>Music</option>
+                                        <option>Physical Education</option>
+                                        <option>Science</option>
+                                        <option>Social studies</option>
+                                        <option>Technology</option>
+                                        <option>Vocational</option>
+                                        <option>Other / Elective</option>
+                                    </optgroup>
+                                    <optgroup label="Work">
+                                        <option>Work</option>
+                                    </optgroup>
+                                    <optgroup label="Community">
+                                        <option>Community Chores/Errands</option>
+                                        <option>Community Social/Leisure</option>
+                                    </optgroup>
+                                    <optgroup label="Home">
+                                        <option>Home Chores</option>
+                                        <option>Home Social/Leisure</option>
+                                        <option>Homework</option>
+                                        <option>Routines</option>
                                     </optgroup>
                                 </select>
                             </div>
